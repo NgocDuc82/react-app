@@ -1,0 +1,12 @@
+.header-navbar {
+    .header-navbar-list {
+      display: flex;
+      justify-content: flex-end;
+      .header-navbar-item {
+        padding: 0 25px;
+        a {
+          color: #000;
+        }
+      }
+    }
+  }

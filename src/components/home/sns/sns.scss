@@ -1,0 +1,37 @@
+.sns {
+    max-width: 915px;
+    margin: auto;
+    margin-top: 150px;
+    .title {
+      text-align: center;
+      span {
+        font-weight: 300;
+        font-size: 16px;
+        color: #667085;
+      }
+    }
+    .social-media {
+      padding: 16px;
+      .list-media {
+        display: flex;
+        justify-content: space-between;
+        background: #f6f6f6;
+        border-radius: 8px;
+  
+        li {
+          padding: 20px;
+          a {
+            color: #272d38;
+            font-size: 26px;
+            font-weight: bold;
+            span {
+              margin-right : 8px;
+            }
+            i {
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
