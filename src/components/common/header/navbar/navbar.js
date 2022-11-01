@@ -7,6 +7,7 @@ export default function Navbar() {
   const handleClinkMenu = () => {
       setToggle(!Toggle)
   }
+  console.log("aaaa");
   return (
     <div>
       <div className="header-navbar">
@@ -49,3 +50,4 @@ export default function Navbar() {
     </div>
   );
 }
+
