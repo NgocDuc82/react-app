@@ -1,53 +1,74 @@
-import React , { useState } from "react";
-import { MenuOutlined } from '@ant-design/icons';
-import './navbar.scss';
+import React, { useState } from "react";
+import { MenuOutlined } from "@ant-design/icons";
+import "./navbar.scss";
+import { NavLink } from "react-router-dom";
 
-export default function Navbar() {
-  const [Toggle, setToggle] = useState(false);
-  const handleClinkMenu = () => {
-      setToggle(!Toggle)
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { Toggle: false, count: 1 };
   }
-  console.log("aaaa");
-  return (
-    <div>
-      <div className="header-navbar">
-        <ul className="header-navbar-list">
-          <li className="header-navbar-item">
-            <a href="/">home</a>
-          </li>
-          <li className="header-navbar-item">
-            <a href="/">About</a>
-          </li>
-          <li className="header-navbar-item">
-            <a href="/">Testimonials</a>
-          </li>
-          <li className="header-navbar-item">
-            <a href="/">contact</a>
-          </li>
-        </ul>
-      </div>
-      <div className="menu-mobile" id="menu">
-        <div className="icon" id="iconMenu" >
-        <MenuOutlined onClick={handleClinkMenu}  />
-        </div>
-        <div className={Toggle === true ? "sub-menu block" : "sub-menu none"} id="subMenu">
-          <ul className="list">
-            <li className="item">
-              <a href="/">home</a>
+  Toggle = () => {
+    this.setState({ Toggle: !this.state.Toggle });
+  };
+  async componentDidMount() {
+    this.CountTime = await setInterval(() => {
+      this.setState({ count : this.state.count + 1});
+      console.log(this.state.count);
+    }, 2000);
+  }
+  componentWillUnmount() {
+    if(this.CountTime){
+      clearInterval(this.CountTime)
+    }
+
+  }
+  render() {
+    return (
+      <div>
+        <div className="header-navbar">
+          <ul className="header-navbar-list">
+            <li className="header-navbar-item">
+              <NavLink to="/">home</NavLink>
             </li>
-            <li className="item">
-              <a href="/">About</a>
+            <li className="header-navbar-item">
+              <NavLink to="/about">about</NavLink>
             </li>
-            <li className="item">
+            <li className="header-navbar-item">
               <a href="/">Testimonials</a>
             </li>
-            <li className="item">
+            <li className="header-navbar-item">
               <a href="/">contact</a>
             </li>
           </ul>
         </div>
+        <div className="menu-mobile" id="menu">
+          <div className="icon" id="iconMenu">
+            <MenuOutlined onClick={this.Toggle} />
+          </div>
+          <div
+            className={this.state.Toggle ? "sub-menu block" : "sub-menu none"}
+            id="subMenu"
+          >
+            <ul className="list">
+              <li className="header-navbar-item">
+                <NavLink to="/">home</NavLink>
+              </li>
+              <li className="header-navbar-item">
+                <NavLink to="/about">about</NavLink>
+              </li>
+              <li className="item">
+                <a href="/">Testimonials</a>
+              </li>
+              <li className="item">
+                <a href="/">contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
+export default Navbar;
