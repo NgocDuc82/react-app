@@ -11,12 +11,12 @@ class Navbar extends React.Component {
   Toggle = () => {
     this.setState({ Toggle: !this.state.Toggle });
   };
-  async componentDidMount() {
-    this.CountTime = await setInterval(() => {
-      this.setState({ count : this.state.count + 1});
-      console.log(this.state.count);
-    }, 2000);
-  }
+  // async componentDidMount() {
+  //   this.CountTime = await setInterval(() => {
+  //     this.setState({ count : this.state.count + 1});
+  //     console.log(this.state.count);
+  //   }, 2000);
+  // }
   componentWillUnmount() {
     if(this.CountTime){
       clearInterval(this.CountTime)

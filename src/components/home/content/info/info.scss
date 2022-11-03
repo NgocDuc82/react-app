@@ -21,6 +21,7 @@
       margin-top: 38px;
       display: flex;
       .info-item {
+        margin: 0 8px;
         padding: 32px 0;
         width: 100%;
         background: #f6f6f6;
@@ -45,9 +46,6 @@
             margin: auto;
           }
         }
-      }
-      .center {
-        margin: 0 15px;
       }
     }
   }
